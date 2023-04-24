@@ -40,5 +40,5 @@ modifying, and writing computer programs.
 
 ## Topics
 
-[Basics of the lambda calculus](Content/lambda.md)
+[Introduction to the lambda calculus](Content/lambda.md)
 
