@@ -103,13 +103,13 @@ called the **argument**, and `M` is called the **body**.
 
 The rule of beta-reduction permits a transition from that expression to the following:
 
-> <code>M</code> [<code>a</code> <-- <code>N</code>]
+> <code>M</code> [<code>a</code> &mapsto; <code>N</code>]
 
 What this means is just `M`, with any *free occurrences* inside `M` of
 the variable `a` replaced with the term `N` (--- "without capture", which
-we'll explain in the [[advanced notes|week2_lambda_advanced]]).
+we'll explain in the advanced notes on the lambda calculus).
 
-What is a free occurrence?
+<details><summary>What is a free occurrence?</summary>
 
 > Any occurrence of a variable `a` is **bound** in T when T has the form `(\a N)`.
 
@@ -135,6 +135,7 @@ occurrence of `y` is bound; and the occurrence of `z` is free.
 To read further:
 
 * [[!wikipedia Free variables and bound variables]]
+</details>
 
 Here's an example of beta-reduction:
 
@@ -232,10 +233,6 @@ already there. That is, in expressions of the form `\y. (...)`, the dot abbrevia
 nothing. It's harmless to write such a dot, though, and it can be conceptually
 helpful especially in light of the next convention.
 
-Similarly, we permit `\x. x`, which is shorthand for `\x x`, not for `\x (x)`, which
-our syntax forbids. (The [[lambda evaluator|/code/lambda_evaluator]] however tolerates such expressions.)
-
-
 **Merging lambdas** An expression of the form `(\x (\y M))`, or equivalently, `(\x. \y. M)`, can be abbreviated as:
 
     (\x y. M)
@@ -305,8 +302,8 @@ and:
 
     (\z z)
 
-both represent the same function, the identity function. However, we said
-[[in the advanced notes|week2_lambda_advanced]] that we would be regarding these expressions as
+both represent the same function, the identity function. However, we will say
+that we regard these expressions as
 synactically equivalent, so they aren't yet really examples of *distinct*
 lambda expressions representing a single function. However, all three of these
 are distinct lambda expressions:
@@ -342,11 +339,12 @@ tension between the idea of functions-as-extensions and the idea of functions
 embodied in the lambda calculus.
 
 
-1.  One reason is that that general
+1.  One reason is that general
 mathematical conception permits many *uncomputable* functions, but the
 lambda calculus can't express those.
 
-2.  More problematically, lambda terms express "functions" that can *take themselves* as arguments.  If we wanted to represent that set-theoretically, and
+2.  More problematically, lambda terms express "functions" that can *take themselves* as arguments.  
+If we wanted to represent that set-theoretically, and
 identified functions with their extensions, then we'd have to have some
 extension that contained (an ordered pair containing) itself as a member. Which
 we're not allowed to do in mainstream set-theory.  But in the lambda calculus
@@ -356,11 +354,11 @@ this is permitted and common --- and in fact will turn out to be indispensable.
 
         (\x x) (\x x)
 
-   This is a redex that reduces to the identity function (of course).
+    This is a redex that reduces to the identity function (of course).
 
-   We can apply the **K** function to another argument and itself:
+    We can apply the **K** function to another argument and itself:
 
-   > <code><b>K</b> z <b>K</b></code>
+    > <code><b>K</b> z <b>K</b></code>
 
     That is:
 
@@ -421,17 +419,18 @@ The expression:
 
 can't be eta-reduced, because the rightmost outermost constituent is not `x` but `(\y (y x)`.
 
-In the extended proof theory/theories we get be permitting eta-reduction/conversion as well as beta-reduction, *all computable functions with the same
+In the extended proof theory/theories that permit eta-reduction/conversion as well as beta-reduction, *all computable functions with the same
 extension do turn out to be equivalent*, that is, convertible.
 
 However, we still shouldn't assume we're working with functions
 traditionally conceived as just sets of ordered pairs, for the other
-reasons sketched above.
+reasons sketched above.  
 
+What these considerations suggest is that as tempting as it is to think of a function as equivalent to its graph, functions are actually more fine-grained than that.  Just as we shouldn't identify the concept of a proposition with a set of worlds, we shouldn't identify the concept of a function with a set of ordered pairs.
 
-## The analogy with `let` ##
+<details><summary>The analogy with `let`</summary>
 
-In our basic functional programming language, we used `let`
+In the functional programming languages we will be using and defining, we will have `let`
 expressions to assign values to variables.  For instance,
 
     let x match 2
@@ -472,4 +471,4 @@ does not have an `ARG`. That would be like:
 
 Nevertheless, the correspondence is close enough that it can guide our
 intuition.
-
+</details>
