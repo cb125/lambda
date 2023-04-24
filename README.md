@@ -11,5 +11,5 @@ If you work through these ideas, what will you know about?  The material falls i
 
 ## Topics
 
-[Basics of the lambda calculus](lambda.md)
+[Basics of the lambda calculus](Content/lambda.md)
 
