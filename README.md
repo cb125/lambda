@@ -7,7 +7,7 @@ This project is based on a course developed by the authors.  We taught it as a g
 
 We prefer the interactive nature of a seminar for this material, and we have made an effort to make the materials here as interactive as possible.  Certainly it is not possible to fully internalize the concepts and techniques discussed here without engaging with the activities and exercises.  
 
-If you work through these ideas, what will you know about?  The material falls into two main components: terms and their types.  The paradigm term language is the lambda calculus.  We'll build up from the basics to combinatory logic, Church numerals, and recursion.  On the types side, we'll cover simple types, System F, and functors, including especially monads and continuations.   
+If you work through these ideas, what will you know about?  The material falls into two main components: terms and their types.  The paradigm term language is the lambda calculus.  We'll build up from the basics to combinatory logic, evaluation order, Church numerals, and recursion.  On the types side, we'll cover simple types, System F, and functors, including especially monads and continuations.   
 
 ## Topics
 
